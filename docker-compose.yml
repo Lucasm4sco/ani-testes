@@ -1,0 +1,54 @@
+services:
+  db:
+    image: postgres:alpine3.18
+    restart: always
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: root
+    networks:
+      - backend-network
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - backend-network
+    ports:
+      - 8080:8080
+
+  backend:
+    build: 
+      context: ./server
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - backend-network
+      - frontend-network
+    ports:
+      - 5000:5000
+    volumes:
+      - ./server:/app
+    environment:
+      DB_USER: admin
+      DB_PASSWORD: root
+
+  # frontend:
+  #   build: 
+  #     context: ./webapp
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   depends_on:
+  #     - db
+  #     - backend
+  #   networks:
+  #     - frontend-network
+
+networks:
+  backend-network:
+  frontend-network:
