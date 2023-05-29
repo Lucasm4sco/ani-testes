@@ -1,10 +1,17 @@
 from flask import Flask
+from db import ConnectDB
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, Worldddddddd!</p>"
+    db = ConnectDB()
+    data = db.execute_query('select * from users')
+    
+    if data:
+        return data
+
+    return []
     
 
 if __name__ == '__main__':

@@ -35,8 +35,10 @@ services:
     volumes:
       - ./server:/app
     environment:
+      DB_NAME: ani_verse
       DB_USER: admin
       DB_PASSWORD: root
+      DB_HOST: db
 
   # frontend:
   #   build: 
