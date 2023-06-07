@@ -40,16 +40,18 @@ services:
       DB_PASSWORD: root
       DB_HOST: db
 
-  # frontend:
-  #   build: 
-  #     context: ./webapp
-  #     dockerfile: Dockerfile
-  #   restart: always
-  #   depends_on:
-  #     - db
-  #     - backend
-  #   networks:
-  #     - frontend-network
+  frontend:
+    build: 
+      context: ./webapp
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - db
+      - backend
+    networks:
+      - frontend-network
+    ports:
+      - 80:80
 
 networks:
   backend-network:

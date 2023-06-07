@@ -1,0 +1,32 @@
+span[typeLoading="title"] {
+    height: 40px;
+    width: 233px;
+}
+
+span[typeLoading="card"] {
+    width: 155px;
+    height: 220px;
+}
+
+.loading-skeleton {
+    display: inline-block;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    background-color: #DDDBDD;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(90deg, rgba(229, 218, 218, 49%) 20%, rgba(235, 231, 231, 0.61) 60%, rgba(252, 252, 252, 0.49), rgba(229, 218, 218, 49%));
+        animation: shimmer .8s infinite linear;
+    }
+
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}

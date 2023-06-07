@@ -1,0 +1,15 @@
+<main>
+    <div class='limit-content' *ngIf="userData == null">
+        <div *ngFor="let numero of range(1, 5)" class='container-loadings'>
+            <div class='container-title'>
+                <app-loading typeLoading='title'></app-loading>
+            </div>
+
+            <div class='container-row'>
+                <div class='container-card' *ngFor="let numero of range(1, 6)">
+                    <app-loading typeLoading='card'></app-loading>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

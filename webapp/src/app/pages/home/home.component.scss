@@ -1,0 +1,21 @@
+main {
+    background: #FFFFFF;
+    border-radius: 50px 50px 0px 0px;
+    min-height: 90vh;
+    position: relative;
+    top: -50px;
+    padding: 30px 20px;
+}
+
+.container-row {
+    display: flex;
+    overflow: auto;
+}
+
+.container-title {
+    margin: 20px 0px 0px;
+}
+
+.container-card {
+    margin: 40px 20px 20px;
+}

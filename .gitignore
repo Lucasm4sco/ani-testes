@@ -1,2 +1,13 @@
 ideia.txt
 __pycache__
+
+# by angular
+dist
+node_modules
+.editorconfig
+.vscode
+.angular
+.sass-cache
+
+# testing code in project
+interceptors
